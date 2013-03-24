@@ -7,7 +7,7 @@
     <title>Multi-touch demo</title>
   </head>
   <body>
-    <canvas height="10" width="10" id="canvas"></canvas>
+    <canvas height="2000" width="2000" id="canvas"></canvas>
 
     <script type="text/javascript">
       var canvas = document.getElementById('canvas');
@@ -24,8 +24,8 @@
 	  var touch2 = event.touches[1];
           var p1 = ""+touch1.pageX+" "+touch1.pageY;
           var p2 = ""+touch2.pageX+" "+touch2.pageY;
-	  alert(p1);
-	  alert(p2);
+	  //alert(p1);
+	  //alert(p2);
         }
       }, false);
 
@@ -39,6 +39,19 @@
 
       canvas.addEventListener('touchend', function () {
       }, false);
+//scale part-------------
+
+    var rotation = 0.0,
+        scale = 1.0;
+    document.addEventListener('gesturechange', function(event) {
+      scale = event.scale;
+      alert(scale);
+	alert("p1 is "+p1);
+	alert("p2 is "+p2);
+	if (  (scale > 1.02 || scale < 0.98) && p1 && p2 ) alert(""+scale+" "+p1+" "+p2);
+    });
+
+
     </script>
   
 
