@@ -13,7 +13,7 @@
     var p2;
     document.addEventListener('gesturechange', function(event) {
       scale = event.scale;
-	if (  (scale > 1.02 || scale < 0.98) && p1 && p2 ) alert("scale is "+ scale+"; p1 is "+p1+"; p2 is "+p2);
+	if (  (scale > 1.02 || scale < 0.98) && p1 && p2 ) alert(p1);
     });
 
     document.addEventListener('touchstart', function (event) {
