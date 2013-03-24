@@ -8,24 +8,25 @@
     <link rel="stylesheet" href="Multi-touch%20demo2_files/main.css">
   </head>
   <body>
-    <canvas height="100%" width="100%" id="canvas"></canvas>
+    <canvas height="450" width="320" id="canvas"></canvas>
 
     <script type="text/javascript">
       var canvas = document.getElementById('canvas');
-
-
+      var p1;
+      var p2;
       // Stop mobile device from native scrolling away on the page
       document.body.addEventListener('touchmove', function (event) {
         event.preventDefault();
       }, false);
 
       canvas.addEventListener('touchstart', function (event) {
-        for (var i = 0; i < event.touches.length; i ++) {
-          var touch = event.touches[i];
-
-          var px = touch.pageX;
-          var py = touch.pageY;
-	  alert(""+px+" "+py);
+	if (event.touches.length >=2) {
+          var touch1 = event.touches[0];
+	  var touch2 = event.touches[1];
+          var p1 = ""+touch1.pageX+" "+touch1.pageY;
+          var p2 = ""+touch2.pageX+" "+touch2.pageY;
+	  alert(p1);
+	  alert(p2);
         }
       }, false);
 
