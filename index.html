@@ -16,6 +16,7 @@ html{
       background-size: cover;
 }
 </style>
+
   </head>
   <body>
 
@@ -23,6 +24,12 @@ html{
       var canvas = document.getElementById('canvas');
       var p1;
       var p2;
+      var status;
+	function changeBackPic() {
+		var body = document.getElementsByTagName('body')[0];
+		body.style.backgroundImage = 'url(Galaxy.jpg) no-repeat center center fixed';
+	}
+
       // Stop mobile device from native scrolling away on the page
       document.body.addEventListener('touchmove', function (event) {
         event.preventDefault();
@@ -53,7 +60,10 @@ html{
      var scale = 1.0;
      document.addEventListener('gesturechange', function(event) {
       scale = event.scale;
-	if (  (scale > 1.02 || scale < 0.98) && p1 && p2 ) alert("lalala "+scale+" "+p1+" "+p2);
+	if (  (scale > 1.02 || scale < 0.98) && p1 && p2 ) {
+		alert("lalala "+scale+" "+p1+" "+p2);
+		changeBackPic();
+	}
     }); 
 
 
