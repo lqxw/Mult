@@ -18,7 +18,7 @@
         event.preventDefault();
       }, false);
 
-      canvas.addEventListener('touchstart', function (event) {
+      document.addEventListener('touchstart', function (event) {
 	if (event.touches.length >=2) {
           var touch1 = event.touches[0];
 	  var touch2 = event.touches[1];
