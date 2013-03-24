@@ -12,6 +12,7 @@
 
     document.addEventListener('gesturechange', function(event) {
       scale = event.scale;
+	  setTimeout(continueExecution, 3000);
 	  alert("scale is "+scale);
     });
 
