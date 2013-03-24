@@ -7,7 +7,7 @@
     <title>Multi-touch demo</title>
   </head>
   <body>
-    <canvas height="2000" width="2000" id="canvas"></canvas>
+    <!-- <canvas height="2000" width="2000" id="canvas"></canvas> -->
 
     <script type="text/javascript">
       var canvas = document.getElementById('canvas');
@@ -35,7 +35,7 @@
         }
       }, false);
 
-      canvas.addEventListener('touchend', function () {
+      document.addEventListener('touchend', function () {
       }, false);
 
 //scale part-------------
@@ -43,7 +43,7 @@
      var scale = 1.0;
      document.addEventListener('gesturechange', function(event) {
       scale = event.scale;
-	if (  (scale > 1.02 || scale < 0.98) && p1 && p2 ) alert(""+scale+" "+p1+" "+p2);
+	if (  (scale > 1.02 || scale < 0.98) && p1 && p2 ) alert("lalala "+scale+" "+p1+" "+p2);
     }); 
 
 
