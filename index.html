@@ -9,7 +9,7 @@
     <title>Magnifier</title>
 <style>
 html{
-      background: url(1.jpg) no-repeat center center fixed;
+      background: url(solar.jpg) no-repeat center center fixed;
       -webkit-background-size: 100% 100%;
       -moz-background-size: 100% 100%;
       -o-background-size: 100% 100%;
@@ -18,104 +18,68 @@ html{
 
 </style>
 
-<!--   -webkit-background-size: cover;
-      -moz-background-size: cover;
-      -o-background-size: cover;
-      background-size: cover; -->
+<!-- -webkit-background-size: cover;
+-moz-background-size: cover;
+-o-background-size: cover;
+background-size: cover; -->
 
   </head>
   <body>
 
     <script type="text/javascript">
-      //var canvas = document.getElementById('canvas');
+      var canvas = document.getElementById('canvas');
       var p1;
       var p2;
-      var p;
-      var status = 1;
-      var scale = 1.0;
-
-function newStatus() {
-    if (scale>=0.98 and scale<=1.02) return status;//do nothing
-	if (status == 1 && scale < 1) return 1;//first pic
-	if (scale < 1) return Math.floor(status/10);
-	if (status == 1 && 0<=p[0] && p[0]<=1 && 0<=p[1] && p[1]<=1 ) return 11;//always 
-	if (status == 11 && 0<=p[0] && p[0]<=0.35 && 0<=p[1] && p[1]<=0.34 ) return 111;
-	if (status == 11 && 0.51<=p[0] && p[0]<=0.63 && 0<=p[1] && p[1]<=0.21 ) return 112;
-	if (status == 11 && 0.7<=p[0] && p[0]<=0.87 && 0<=p[1] && p[1]<=0.33 ) return 113;
-	if (status == 11 && 0<=p[0] && p[0]<=0.5 && 0.45<=p[1] && p[1]<=1 ) return 114;
-	if (status == 114 && 0.1<=p[0] && p[0]<=0.27 && 0.11<=p[1] && p[1]<=0.32  ) return 1141;
-	if (status == 114 && 0.28<=p[0] && p[0]<=0.80 && 0.15<=p[1] && p[1]<=0.86  ) return 1142;
-	if (status == 1141 && 0<=p[0] && p[0]<=1 && 0<=p[1] && p[1]<=1  ) return 11411; //always
-	if (status == 1142 && 0<=p[0] && p[0]<=1 && 0<=p[1] && p[1]<=1 ) return 11421;
-	if (status == 11421 && 0<=p[0] && p[0]<=1 && 0<=p[1] && p[1]<=1 ) return 114211;
-	return status;
-}
-/*
-1 0%-100% 0%-100% 11
-11 0%-34% 35%-0% 111 end
-11 51%-7% 63%-21% 112 end
-11 70%-7% 87%-33% 113 end
-11 0%-45% 50%-100% 114
-114 10%-11% 27%-32% 1141
-114 28%-15% 80%-86% 1142
-1141 0%-100% 0%-100% 11411 end
-1142 0%-100% 0%-100% 11421
-11421 0%-100% 0%-100% 114211 end
-*/
+      var status;
 
 function changeBackPic() {
-	//var width = window.innerWidth;
-	//var height = window.innerHeight;
-	//var point = [ 0.5*(p1[0]+p2[0])/width,0.5*(p1[1]+p2[1])/height];
-	//alert("point1 is " + p1[0]/width*100 + "% " + p1[1]/height*100+"%");
-	//alert("point2 is " + p2[0]/width*100 + "% " + p2[1]/height*100+"%");
-	alert("point is "+p[0]*100 + "% " + p[1]*100+"%");
-	//document.getElementById('main').style.backgroundImage = "url(Galaxy.jpg)"
-	status = newStatus();
-	document.getElementById('main').style.backgroundImage = "url("+status+".jpg)";
+var width = window.innerWidth;
+var height = window.innerHeight;
+var point = [ 0.5*(p1[0]+p2[0])/width,0.5*(p1[1]+p2[1])/height];
+//alert("point1 is " + p1[0]/width*100 + "% " + p1[1]/height*100+"%");
+//alert("point2 is " + p2[0]/width*100 + "% " + p2[1]/height*100+"%");
+alert("point is "+point[0]*100 + "% " + point[1]*100+"%");
+//document.getElementById('main').style.backgroundImage = "url(Galaxy.jpg)"
 }
 
 
   document.addEventListener('touchstart', function (event) {
-	if (event.touches.length >=2) {
+if (event.touches.length >=2) {
           var touch1 = event.touches[0];
-		  var touch2 = event.touches[1];
-		  var width = window.innerWidth;
-          var height = window.innerHeight;
+var touch2 = event.touches[1];
            p1 = [touch1.pageX,touch1.pageY];
            p2 = [touch2.pageX,touch2.pageY];
-           p = [0.5*(p1[0]+p2[0])/width, 0.5*(p1[1]+p2[1])/height]
         }
       }, false);
 
 
-/* 
-      // Stop mobile device from native scrolling away on the page
-      document.body.addEventListener('touchmove', function (event) {
-        event.preventDefault();
-      }, false);
+/*
+// Stop mobile device from native scrolling away on the page
+document.body.addEventListener('touchmove', function (event) {
+event.preventDefault();
+}, false);
 
-     document.addEventListener('touchmove', function (event) {
-        for (var i = 0; i < event.touches.length; i ++) {
-          var touch = event.touches[i];
-          var px = touch.pageX;
-          var py = touch.pageY;
-        }
-      }, false);
+document.addEventListener('touchmove', function (event) {
+for (var i = 0; i < event.touches.length; i ++) {
+var touch = event.touches[i];
+var px = touch.pageX;
+var py = touch.pageY;
+}
+}, false);
 
-      document.addEventListener('touchend', function () {
-      }, false);*/
+document.addEventListener('touchend', function () {
+}, false);*/
 
 //scale part-------------
 
+     var scale = 1.0;
      document.addEventListener('gesturechange', function(event) {
       scale = event.scale;
-      alert(scale);
-	if   (scale > 1.02 || scale < 0.98) {
-		alert("lalala");
-		changeBackPic();
-	}
-    }); 
+if ( (scale > 1.02 || scale < 0.98) && p1 && p2 ) {
+//alert("lalala "+scale+" "+p1+" "+p2);
+changeBackPic();
+}
+    });
 
 
     </script>
