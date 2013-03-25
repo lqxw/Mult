@@ -29,8 +29,15 @@ html{
       var scale = 1.0;
 
 function newStatus() {
-    if (status == 1 && scale < 1) return 1;//first pic
-    if (scale < 1) return Math.floor(status/10);
+    if (status == 1 && scale < 1) {
+ 	scale = 1;
+	return 1;//first pic
+    }
+    if (scale < 1) {
+	scale = 1;
+	return Math.floor(status/10);
+    }
+    scale = 1;
     if (status == 1 && 0<=p[0] && p[0]<=1 && 0<=p[1] && p[1]<=1 ) return 11;//always
     if (status == 11 && 0<=p[0] && p[0]<=0.35 && 0<=p[1] && p[1]<=0.34 ) return 111;
     if (status == 11 && 0.51<=p[0] && p[0]<=0.63 && 0<=p[1] && p[1]<=0.21 ) return 112;
@@ -58,6 +65,7 @@ function newStatus() {
 
 function changeBackPic() {
 status = newStatus();
+scale = 1;
 document.getElementById('main').style.backgroundImage = "url("+status+".jpg)";
 scale = 1;
 }
@@ -78,8 +86,9 @@ scale = 1;
 
      document.addEventListener('gesturechange', function(event) {
       scale = event.scale;
-    if ( (scale <=0.5 || scale >=1.5) && p1 && p2 ) {
-        changeBackPic();
+    if ( (scale <=0.9 || scale >=1.1) && p1 && p2 ) {
+        scale = 1;
+	changeBackPic();
     }
     });
 
