@@ -32,23 +32,56 @@ function newStatus() {
     alert("");
     if (status == 1 && scale < 1) {
  	scale = 1;
+ 	alert("No larger than galaxy:)");
 	return 1;//first pic
     }
     if (scale < 1) {
 	scale = 1;
+	alert("Going backwards");
 	return Math.floor(status/10);
     }
     scale = 1;
-    if (status == 1 && 0<=p[0] && p[0]<=1 && 0<=p[1] && p[1]<=1 ) return 11;//always
-    if (status == 11 && 0<=p[0] && p[0]<=0.35 && 0<=p[1] && p[1]<=0.34 ) return 111;
-    if (status == 11 && 0.51<=p[0] && p[0]<=0.63 && 0<=p[1] && p[1]<=0.21 ) return 112;
-    if (status == 11 && 0.7<=p[0] && p[0]<=0.87 && 0<=p[1] && p[1]<=0.33 ) return 113;
-    if (status == 11 && 0<=p[0] && p[0]<=0.5 && 0.45<=p[1] && p[1]<=1 ) return 114;
-    if (status == 114 && 0.1<=p[0] && p[0]<=0.31 && 0.11<=p[1] && p[1]<=0.32 ) return 1141;
-    if (status == 114 && 0.28<=p[0] && p[0]<=0.80 && 0.15<=p[1] && p[1]<=0.86 ) return 1142;
-    if (status == 1141 && 0<=p[0] && p[0]<=1 && 0<=p[1] && p[1]<=1 ) return 11411; //always
-    if (status == 1142 && 0<=p[0] && p[0]<=1 && 0<=p[1] && p[1]<=1 ) return 11421;
-    if (status == 11421 && 0<=p[0] && p[0]<=1 && 0<=p[1] && p[1]<=1 ) return 114211;
+    if (status == 1 && 0<=p[0] && p[0]<=1 && 0<=p[1] && p[1]<=1 ) {
+	alert("Going to Solar System");
+	return 11;//always
+    }
+    if (status == 11 && 0<=p[0] && p[0]<=0.35 && 0<=p[1] && p[1]<=0.34 ) {
+        alert("Going to the Sun");
+        return 111;
+    }
+    if (status == 11 && 0.51<=p[0] && p[0]<=0.63 && 0<=p[1] && p[1]<=0.21 ) {
+        alert("Going to Mercury")
+        return 112;
+    }
+    if (status == 11 && 0.7<=p[0] && p[0]<=0.87 && 0<=p[1] && p[1]<=0.33 ) {
+        alert("Going to Venus");
+        return 113;
+    }
+    if (status == 11 && 0<=p[0] && p[0]<=0.5 && 0.45<=p[1] && p[1]<=1 ) {
+        alert("Going to Earth");   
+        return 114;
+    }
+    if (status == 114 && 0.1<=p[0] && p[0]<=0.31 && 0.11<=p[1] && p[1]<=0.32 ) {
+        alert("Nice moon:)");
+        return 1141;
+    }
+    if (status == 114 && 0.28<=p[0] && p[0]<=0.80 && 0.15<=p[1] && p[1]<=0.86 ) {
+        alert("Home sweet home:)");    
+        return 1142;
+    }
+    if (status == 1141 && 0<=p[0] && p[0]<=1 && 0<=p[1] && p[1]<=1 ) {
+        alert("On moon surface");
+        return 11411; //always
+    }
+    if (status == 1142 && 0<=p[0] && p[0]<=1 && 0<=p[1] && p[1]<=1 ) {
+        alert("In North America");
+        return 11421;
+    }
+    if (status == 11421 && 0<=p[0] && p[0]<=1 && 0<=p[1] && p[1]<=1 ) {
+        alert("Welcome to Toronto:)");
+        return 114211;
+    }
+    alert("You reach the end, zoom out to go backwards:)");
     return status;
 }
 /*
