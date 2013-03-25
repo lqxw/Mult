@@ -31,6 +31,7 @@ background-size: cover; -->
       var p1;
       var p2;
       var status;
+      var scale = 1.0;
 
 function changeBackPic() {
 var width = window.innerWidth;
@@ -72,7 +73,7 @@ document.addEventListener('touchend', function () {
 
 //scale part-------------
 
-     var scale = 1.0;
+
      document.addEventListener('gesturechange', function(event) {
       scale = event.scale;
 if ( (scale > 1.02 || scale < 0.98) && p1 && p2 ) {
