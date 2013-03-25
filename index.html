@@ -37,7 +37,7 @@ html{
            p1 = ""+touch1.pageX+" "+touch1.pageY;
            p2 = ""+touch2.pageX+" "+touch2.pageY;
         }
-      }, true);
+      }, false);
 
 
 /* 
@@ -62,7 +62,7 @@ html{
      var scale = 1.0;
      document.addEventListener('gesturechange', function(event) {
       scale = event.scale;
-	if (  (scale > 1.5 || scale < 0.5) && p1 && p2 ) {
+	if (  (scale > 1.02 || scale < 0.98) && p1 && p2 ) {
 		//alert("lalala "+scale+" "+p1+" "+p2);
 		changeBackPic();
 	}
