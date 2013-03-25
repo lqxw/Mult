@@ -31,17 +31,22 @@ html{
       var p1;
       var p2;
       var status;
-	function changeBackPic() {
-		document.getElementById('main').style.backgroundImage = "url(Galaxy.jpg)"
-	}
+
+function changeBackPic() {
+	var width = window.innerWidth;
+	var height = window.innerHeight;
+	alert("point1 is " + p1[0]/width*100 + "% " + p1[1]/height*100+"%");
+	alert("point2 is " + p2[0]/width*100 + "% " + p2[1]/height*100+"%");
+	document.getElementById('main').style.backgroundImage = "url(Galaxy.jpg)"
+}
 
 
-      document.addEventListener('touchstart', function (event) {
+  document.addEventListener('touchstart', function (event) {
 	if (event.touches.length >=2) {
           var touch1 = event.touches[0];
-	  var touch2 = event.touches[1];
-           p1 = ""+touch1.pageX+" "+touch1.pageY;
-           p2 = ""+touch2.pageX+" "+touch2.pageY;
+		  var touch2 = event.touches[1];
+           p1 = [touch1.pageX,touch1.pageY];
+           p2 = [touch2.pageX,touch2.pageY];
         }
       }, false);
 
