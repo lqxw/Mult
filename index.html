@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html id="main">
 
 <head>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">
@@ -26,8 +26,7 @@ html{
       var p2;
       var status;
 	function changeBackPic() {
-		var back = document.getElementsByTagName('html')[0];
-		back.style.backgroundImage = 'url(Galaxy.jpg) no-repeat center center fixed';
+		document.getElementById('main').style.backgroundImage = "url(Galaxy.jpg)"
 	}
 
       // Stop mobile device from native scrolling away on the page
