@@ -39,14 +39,16 @@ if (status == 1 && scale < 1) return 1;//first pic
 if (scale < 1) return Math.floor(status/10);
 if (status == 1 && 0<=p[0] && p[0]<=1 && 0<=p[1] && p[1]<=1 ) return 11;//always
 if (status == 11 && 0<=p[0] && p[0]<=0.35 && 0<=p[1] && p[1]<=0.34 ) return 111;
+/*
 if (status == 11 && 0.51<=p[0] && p[0]<=0.63 && 0<=p[1] && p[1]<=0.21 ) return 112;
 if (status == 11 && 0.7<=p[0] && p[0]<=0.87 && 0<=p[1] && p[1]<=0.33 ) return 113;
 if (status == 11 && 0<=p[0] && p[0]<=0.5 && 0.45<=p[1] && p[1]<=1 ) return 114;
+
 if (status == 114 && 0.1<=p[0] && p[0]<=0.27 && 0.11<=p[1] && p[1]<=0.32 ) return 1141;
 if (status == 114 && 0.28<=p[0] && p[0]<=0.80 && 0.15<=p[1] && p[1]<=0.86 ) return 1142;
 if (status == 1141 && 0<=p[0] && p[0]<=1 && 0<=p[1] && p[1]<=1 ) return 11411; //always
 if (status == 1142 && 0<=p[0] && p[0]<=1 && 0<=p[1] && p[1]<=1 ) return 11421;
-if (status == 11421 && 0<=p[0] && p[0]<=1 && 0<=p[1] && p[1]<=1 ) return 114211;
+if (status == 11421 && 0<=p[0] && p[0]<=1 && 0<=p[1] && p[1]<=1 ) return 114211;*/
 return status;
 }
 
