@@ -89,8 +89,8 @@ scale = 1;
      document.addEventListener('gesturechange', function(event) {
       scale = event.scale;
     if ( (scale <=0.9 || scale >=1.1) && p1 && p2 ) {
-        scale = 1;
 	changeBackPic();
+	scale = 1;
     }
     });
 
