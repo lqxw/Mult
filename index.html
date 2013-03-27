@@ -19,7 +19,7 @@ html{
 </style>
 
   </head>
-  <body>
+  <body id="bodyid">
 
     <script type="text/javascript">
       var p1;
@@ -27,6 +27,7 @@ html{
       var p;
       var status = 1;
       var scale = 1.0;
+      var bodyVar = document.getElementById('bodyid');
 
 function newStatus() {
     if (status == 1 && scale < 1) {
@@ -105,7 +106,7 @@ scale = 1;
 }
 
 
-  document.addEventListener('touchstart', function (event) {
+  bodyVar.addEventListener('touchstart', function (event) {
     if (event.touches.length >=2) {
           var touch1 = event.touches[0];
           var touch2 = event.touches[1];
@@ -119,7 +120,7 @@ scale = 1;
       }, false);
 
 
-     document.addEventListener('gesturechange', function(event) {
+     bodyVar.addEventListener('gesturechange', function(event) {
       scale = event.scale;
     if ( (scale <=0.9 || scale >=1.1) && p1 && p2 ) {
     alert("Scale detected");
