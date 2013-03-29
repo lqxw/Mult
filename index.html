@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html id="main">
+<html id="main" onclick="show_coords(event);" >
 
 <head>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">
@@ -19,7 +19,7 @@ html{
 </style>
 
   </head>
-  <body id="bodyid">
+  <body>
 
     <script type="text/javascript">
       var p1;
@@ -27,9 +27,13 @@ html{
       var p;
       var status = 1;
       var scale = 1.0;
-      var bodyVar = document.getElementById('bodyid');
 
 function newStatus() {
+   if( navigator.userAgent.match(/iPhone/i)  )     {
+    if (scale >=0.9 && scale <=1.1) {
+    alert("click doesn't work for iphone");
+    return status;//do nothing fo iphone
+    }
     if (status == 1 && scale < 1) {
  	scale = 1;
  	alert("No larger than galaxy:)");
@@ -84,7 +88,60 @@ function newStatus() {
     if (status == 111 || status == 112 || status == 113 || status == 11411 || status == 114211) alert("Wow! You reach the end, zoom out to go backwards:)");
     else alert("No item here:)");
     return status;
+    } // iphone done
+    
+    else  { //not iphone
+    scale = 1;
+    if (status == 1 && 0<=p[0] && p[0]<=1 && 0<=p[1] && p[1]<=1 ) {
+	alert("Going to Solar System");
+	return 11;//always
+    }
+    if (status == 11 && 0<=p[0] && p[0]<=0.35 && 0<=p[1] && p[1]<=0.34 ) {
+        alert("Going to the Sun");
+        return 111;
+    }
+    if (status == 11 && 0.5<=p[0] && p[0]<=0.63 && 0<=p[1] && p[1]<=0.3 ) {
+        alert("Going to Mercury")
+        return 112;
+    }
+    if (status == 11 && 0.7<=p[0] && p[0]<=0.9 && 0<=p[1] && p[1]<=0.4 ) {
+        alert("Going to Venus");
+        return 113;
+    }
+    if (status == 11 && 0<=p[0] && p[0]<=0.5 && 0.45<=p[1] && p[1]<=1 ) {
+        alert("Going to Earth");   
+        return 114;
+    }
+    if (status == 114 && 0.1<=p[0] && p[0]<=0.31 && 0.11<=p[1] && p[1]<=0.32 ) {
+        alert("Going to Moon");
+        return 1141;
+    }
+    if (status == 114 && 0.28<=p[0] && p[0]<=0.80 && 0.15<=p[1] && p[1]<=0.86 ) {
+        alert("Home sweet home:)");    
+        return 1142;
+    }
+    if (status == 1141 && 0<=p[0] && p[0]<=1 && 0<=p[1] && p[1]<=1 ) {
+        alert("On moon surface");
+        return 11411; //always
+    }
+    if (status == 1142 && 0<=p[0] && p[0]<=1 && 0<=p[1] && p[1]<=1 ) {
+        alert("North America");
+        return 11421;
+    }
+    if (status == 11421 && 0<=p[0] && p[0]<=1 && 0<=p[1] && p[1]<=1 ) {
+        alert("Welcome to Toronto:)");
+        return 114211;
+    }
+    if (status == 111 || status == 112 || status == 113 || status == 11411 || status == 114211) alert("Wow! You reach the end, zoom out to go backwards:)");
+    else alert("No item here:)");
+    return status;
+    }
 }
+    
+    
+    
+    
+    
 /*
 1 0%-100% 0%-100% 11
 11 0%-34% 35%-0% 111 end
@@ -98,6 +155,17 @@ function newStatus() {
 11421 0%-100% 0%-100% 114211 end
 */
 
+function show_coords(event)
+{
+var x=event.clientX;
+var y=event.clientY;
+var width = window.innerWidth;
+var height = window.innerHeight;
+p = [x/width, y/height]
+changeBackPic();
+}
+
+
 function changeBackPic() {
 status = newStatus();
 scale = 1;
@@ -106,7 +174,7 @@ scale = 1;
 }
 
 
-  bodyVar.addEventListener('touchstart', function (event) {
+  document.addEventListener('touchstart', function (event) {
     if (event.touches.length >=2) {
           var touch1 = event.touches[0];
           var touch2 = event.touches[1];
@@ -115,15 +183,13 @@ scale = 1;
           p1 = [touch1.pageX,touch1.pageY];
           p2 = [touch2.pageX,touch2.pageY];
           p = [0.5*(p1[0]+p2[0])/width, 0.5*(p1[1]+p2[1])/height]
-          //alert("Mult-touch detected");
         }
       }, false);
 
 
-     bodyVar.addEventListener('gesturechange', function(event) {
+     document.addEventListener('gesturechange', function(event) {
       scale = event.scale;
     if ( (scale <=0.9 || scale >=1.1) && p1 && p2 ) {
-    alert("Scale detected");
 	changeBackPic();
 	scale = 1;
     }
@@ -134,4 +200,3 @@ scale = 1;
   
 
 </body></html>
-
