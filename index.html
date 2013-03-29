@@ -29,10 +29,10 @@ html{
       var scale = 1.0;
 
 function newStatus() {
-   if( navigator.userAgent.match(/iPhone/i)  )     {
+   if( navigator.userAgent.match(/iPhone/i)  )     {//scale only works on iPhone
     if (scale >=0.9 && scale <=1.1) {
-    alert("click doesn't work for iphone");
-    return status;//do nothing fo iphone
+    //alert("click doesn't work for iphone");
+    return status;//do nothing for iphone
     }
     if (status == 1 && scale < 1) {
  	scale = 1;
@@ -90,8 +90,7 @@ function newStatus() {
     return status;
     } // iphone done
     
-    else  { //not iphone
-    scale = 1;
+    else  { //not iphone:( scale doesn't work, use click instead
     if (status == 1 && 0<=p[0] && p[0]<=1 && 0<=p[1] && p[1]<=1 ) {
 	alert("Going to Solar System");
 	return 11;//always
@@ -132,7 +131,7 @@ function newStatus() {
         alert("Welcome to Toronto:)");
         return 114211;
     }
-    if (status == 111 || status == 112 || status == 113 || status == 11411 || status == 114211) alert("Wow! You reach the end, zoom out to go backwards:)");
+    if (status == 111 || status == 112 || status == 113 || status == 11411 || status == 114211) alert("Wow! You reach the end, refresh to go begining:)");
     else alert("No item here:)");
     return status;
     }
